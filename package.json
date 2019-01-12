@@ -1,0 +1,29 @@
+{
+  "name": "fullstack-assignment-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "express-formidable": "^1.2.0",
+    "filereader": "^0.10.3",
+    "formidable": "^1.2.1",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.2",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "client": "cd react_front && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently  \"npm run  server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC"
+}
