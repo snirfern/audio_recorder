@@ -5,7 +5,7 @@ The assignemnt
 1. Once a session is completed a WAV file is downloded containing the recording. Upload the WAV file to a server instead of it being downloaded.
 
 <-------------------------------------------------------------------------------------------------------------------------------------->
-<---- ---------------------------------- Uploading new audio file to server , Demo screen --------------------------------------------->
+<---- ---------------------------------- Uploading new audio file to server , Demo screen ----------------------------------------->
 <-------------------------------------------------------------------------------------------------------------------------------------->
 
 
