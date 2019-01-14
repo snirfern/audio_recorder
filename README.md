@@ -5,7 +5,7 @@ The assignemnt
 1. Once a session is completed a WAV file is downloded containing the recording. Upload the WAV file to a server instead of it being downloaded.
 
 <-------------------------------------------------------------------------------------------------------------------------------------->
-<----                                Uploading new audio file to server , Demo screen                                             ----->
+<---- ---------------------------------- Uploading new audio file to server , Demo screen --------------------------------------------->
 <-------------------------------------------------------------------------------------------------------------------------------------->
 
 
@@ -20,14 +20,16 @@ The assignemnt
 
 2. Create a webpage to display a list of all the uploaded recordings along with the recording time, creation date and an option to play it.
 
+
 <-------------------------------------------------------------------------------------------------------------------------------------->
-<----                                 List of all records stored in db , React Demo screen                                        ----->
+<---- ---------------------------------- List of all records stored in db , React Demo screen  ---------------------------------------->
 <-------------------------------------------------------------------------------------------------------------------------------------->
+
 
 
     
 
-![alt text](https://github.com/snirfern/audio_recorder/master/2.png)
+![alt text](https://github.com/snirfern/audio_recorder/blob/master/2.png)
 
 
 
