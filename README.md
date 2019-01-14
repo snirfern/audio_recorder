@@ -9,6 +9,7 @@ The assignemnt
 <----    Uploading new audio file to server , Demo screen   ----->
 
 
+![alt text](https://github.com/snirfern/audio_recorder/edit/master/1.png)
 
 
 
