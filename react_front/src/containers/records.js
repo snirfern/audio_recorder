@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 
 import '../style.css'
+import './records.css'
 import Audio from '../components/audio/audio'
 
 class Records extends Component{
@@ -15,27 +16,28 @@ class Records extends Component{
 
 const rows =this.props.audios.map(currItem=>{
   return (
-  <div className="row">
+  <div className="row" key={currItem.time}>
 
   <div className="col-md-4">
-    <div className="date alert alert-success text-center" role="alert">{currItem.date.substring(0,currItem.date.indexOf('GMT'))}</div>
-   
+    <div className="date alert alert-success text-center" role="alert">{currItem.date.substring(0,currItem.date.indexOf('GMT'))}
+
+    </div>
   </div>
 
 
 
 <div className="col-md-4">
-<div className="time alert alert-success text-center" role="alert">{currItem.time} [ms]</div>
+<div className="time alert alert-success text-center" role="alert">{currItem.time} <strong>[ms]</strong></div>
  
   </div>
 
 
 
   <div className="col-md-4">
-  <div className="alert alert-success text-center" role="alert"><Audio src = {"http://localhost:8000/uploads"+currItem.path+".wav"} key={currItem.time}/></div>
+  <div className="alert alert-success text-center" role="alert"><Audio src = {currItem.data} key={currItem.time}/></div>
   
   </div>
-
+<hr ></hr>
     </div>
 
 )

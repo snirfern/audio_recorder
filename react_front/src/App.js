@@ -2,41 +2,36 @@ import React, { Component } from 'react';
 import Records from '../src/containers/records'
 import { connect } from 'react-redux';
 import * as actions from '../src/store/actions'
-import Audio from './components/audio/audio'
-
+import Spinner from  '../src/components/spinner/spinner';
 
 class App extends Component {
 
-constructor(props){
-  super(props)
-  
-  this.state={
-    isLoading : false
-  }
-}
 
+constructor(props){
+  super(props);
+    this.props.recordsInit();
+
+}
 componentWillUpdate(nextProps, nextState){
   console.log(nextProps)
+  
   return (this.props.records !== nextProps.records); 
 }
 componentDidMount(){
 
-  this.props.recordsInit();
 
 }
  
   render() {
-  let audioItems =  this.props.records.map((currAudioItem,index)=>{
 
-   
-   
-      return <Audio src = {"http://localhost:8000/uploads"+currAudioItem.path+".wav"} key={index}></Audio>
-   });
+
    
     return (
       <div className="App">
-      <Records audios = {   this.props.records}/>
-   
+
+      {this.props.isLoading}
+     {!this.props.isLoading ?   <Records audios = {   this.props.records }/> : <Spinner/>}
+      
       </div>
     );
   }
@@ -45,7 +40,8 @@ componentDidMount(){
 const mapStateToProps = state=>{
   return {
     some : state.name,
-    records : state.records
+    records : state.records,
+    isLoading : state.loading
 }
 }
 

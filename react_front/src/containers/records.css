@@ -8,3 +8,20 @@
 audio{
     width : 90%!important;
 }
+
+hr{
+    margin-top : -5px;
+    width : 90%;
+    text-align:center;
+    border :1px solid #ccc4c4!important;
+    opacity : 0.3;
+}
+
+@media  screen and (max-width: 600px) {
+
+
+.row{
+    margin : 10px;
+}
+
+}

@@ -7,7 +7,7 @@ return(
  
 <div>
   {props.length}
-  <audio controls="controls" src = {props.src} />
+  <audio controls="controls" src = {"data:audio/wav; codecs=opus;base64,"+props.src} />
 </div>
 
 

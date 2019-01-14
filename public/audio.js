@@ -1,3 +1,13 @@
+var socket;
+window.onload = function() {
+
+   socket = io.connect('http://localhost:8000');
+   socket.on('connect', function (data) {
+     console.log("cliennt connected");
+
+   });
+ }
+
 var recorder, audioChunks = [];
 var analyser, freqs = [], times = [], freqChunks = [], timesChunks = [];
 var HEIGHT = 200, WIDTH = 640;
@@ -13,7 +23,9 @@ navigator.mediaDevices.getUserMedia({ audio: true })
     audioStream.connect(analyser);
     analyser.fftSize = 1024;
     freqs = new Uint8Array(analyser.frequencyBinCount);
+
     times = new Uint8Array(analyser.frequencyBinCount);
+
     drawViz();
   })
   .catch(e => console.log(e));
@@ -65,7 +77,9 @@ function downloadRawData(startTimestamp, stopTimestamp) {
   var lines = ['data:text/csv;charset=utf-8'];
   freqChunks.forEach(function (record, index) {
     lines.push(record.join(','));
+
   });
+
   var csvContent = lines.join('\n');
 
   var encodedUri = encodeURI(csvContent);
@@ -92,14 +106,22 @@ function startRecording() {
   audioChunks = [];
   freqChunks = [];
   timesChunks = [];
-  recorder.start();
+  recorder.start(80);
+
+  recorder.ondataavailable = e => {
+    audioChunks.push(e.data);
+
+socket.emit('data',e.data)
+  }
+    
+  
 }
 
 function stopRecording(startTimestamp, stopTimestamp,startDateStamp) {
   recorder.ondataavailable = e => {
-    
-    audioChunks.push(e.data);
-    console.log(e.data)
+    //audioChunks.push(e.data);
+    //console.log(e.data)
+
     if (recorder.state == "inactive") {
       let blob = new Blob(audioChunks, { type: 'audio/x-wav' });
       let src = URL.createObjectURL(blob);
@@ -133,5 +155,5 @@ function stopRecording(startTimestamp, stopTimestamp,startDateStamp) {
     }
   };
   recorder.stop();
-  downloadRawData();
+  //downloadRawData();
 }

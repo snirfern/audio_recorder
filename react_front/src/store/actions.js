@@ -10,7 +10,7 @@ export const RECORDS_SUCCESS = "RECORDS_SUCCESS";
 export const fetchRecords = ()=>{
     console.log("fetchRecordds")
     return dispatch=>{
-    axios.get('http://localhost:8000/records')
+    axios.get('http://localhost:8000/db')
     .then((res)=>{
     console.log(res);
     dispatch(setRecords(res.data))})
